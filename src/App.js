@@ -17,7 +17,18 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);
-  console.log(contacts);
+  // useEffect(() => {
+  //   renderContacts();
+  // }, []);
+
+  // const renderContacts = fetch("http://localhost:3000/contacts").then(
+  //   (response) => {
+  //     if (response.ok) return response.json();
+  //   }
+  // );
+  // then((contacts) => {
+  //   setContacts(contacts);
+  //   console.log (contacts())
   return (
     <>
       <nav>
