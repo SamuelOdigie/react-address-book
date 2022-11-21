@@ -12,31 +12,12 @@ export default function App() {
   // use fetch to import the contacts data and make it the use state.
   // i have a feeling fetch will not work unless its an external json file i will finsh the fetch syntax then try async method.
 
-  // useEffect(() => {
-  //  renderContacts
-  // }, []);
-
-  // const renderContacts =
-  // fetch("http://localhost:3000/contacts").
-  //     then(response => {
-  //      if (response.ok)
-  //       return response.json();
-  //   })
-  //   throw response;
-  // }
-
   useEffect(() => {
-    renderContacts();
+    fetch("http://localhost:3000/contacts")
+      .then((res) => res.json())
+      .then((data) => setContacts(data));
   }, []);
-
-  const renderContacts = async () => {
-    const data = await fetch("http://localhost:3000/contacts");
-    const contacts = await data.json();
-    setContacts(contacts);
-  };
-
-  //will make a const here that renders the contacts via async. But i still dont know how to render from a local file
-
+  console.log(contacts);
   return (
     <>
       <nav>
@@ -55,3 +36,16 @@ export default function App() {
     </>
   );
 }
+
+// useEffect(() => {
+//   renderContacts();
+// }, []);
+
+// const renderContacts = async () => {
+//   const data = await fetch("http://localhost:3000/contacts");
+//   const contacts = await data.json();
+//   setContacts(contacts);
+//   console.log(renderContacts);
+// };
+
+//will make a const here that renders the contacts via async. But i still dont know how to render from a local file
