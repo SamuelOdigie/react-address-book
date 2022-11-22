@@ -36,13 +36,28 @@ export default function App() {
         <ul>
           {/* TODO: Make these links */}
           <li>
-            <Link to="http://localhost:3000/contacts">Contacts List</Link>
+            <Link to="/contactlist">Contacts List</Link>
           </li>
-          <li>Add New Contact</li>
+          <li>
+            <Link to="/addcontact">Add New Contact</Link>
+          </li>
         </ul>
       </nav>
       <main>
-        <Routes>{/* TODO: Add routes here  */}</Routes>
+        <Routes>
+          {/* TODO: Add routes here  */}
+          <Route
+            path="contactlist"
+            element={<ContactsList contacts={contacts} />}
+          />
+          <Route
+            path="/contacts/add"
+            element={
+              <ContactsAdd contacts={contacts} setContacts={setContacts} />
+            }
+          />
+          <Route path="/addcontact" element={<ContactsView />} />
+        </Routes>
       </main>
     </>
   );
